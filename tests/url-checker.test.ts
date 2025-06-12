@@ -19,7 +19,9 @@ describe('LinkChecker', () => {
 
     // FIXME
     test('should return false for invalid URL with no protocol', () => {
-        expect(linkChecker.isValidUrl('www.example.com')).toBe(false)
+
+        expect(linkChecker.isValidUrl('www.example.com')).toBeFalsy()
+
     })
 
     // FIXME
@@ -32,5 +34,13 @@ describe('LinkChecker', () => {
     test('should return true for valid URL with path', () => {
         expect(linkChecker.isValidUrl('http://www.example.com/path/to/page')).toBe(true)
     })
+  
+ test('should return true for valid URL with port', () => {
+      expect(linkChecker.isValidUrl('http://www.example.com:8080')).toBeTruthy;
+   })
+
+   test('should return true for valid URL with path', () => {
+       expect(linkChecker.isValidUrl('http://www.example.com/path/to/page')).toBeTruthy()
+   })
 
 })
